@@ -1,0 +1,8 @@
+---
+- name: Install Wallcat via Mac App Store
+  command: mas install "{{ item.id }}"
+  args:
+    creates: /Applications/{{ item.name }}.app
+  with_items:
+    - { id: 1000397973, name: "Wallcat" }
+  when: ansible_os_family == "Darwin"
